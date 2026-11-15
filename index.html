@@ -12,7 +12,6 @@
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #1e293b;
-            --accent: #f59e0b;
         }
         * {
             box-sizing: border-box;
@@ -95,19 +94,15 @@
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
-        .image-card img {
-            max-width: 100%;
-            height: 200px;
-            object-fit: contain;
+        .image-card .emoji-icon {
+            font-size: 5rem;
             margin-bottom: 15px;
-            border-radius: 12px;
         }
         .image-card p {
             font-weight: 500;
             color: #b45309;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
-        /* บัญญัติไตรยางศ์สไตล์คลิกเปิดป้าย */
         .math-box {
             display: grid;
             grid-template-columns: 1fr auto 1fr;
@@ -191,16 +186,16 @@
         <div style="margin-top: 40px; background: var(--primary-light); padding: 25px; border-radius: 16px;">
             <h3 style="color: var(--primary); margin-bottom: 10px;">💡 สิ่งที่จะได้เรียนรู้ในบทเรียนนี้</h3>
             <ul style="margin-left: 20px; color: var(--text-main); line-height: 1.8;">
-                <li>รู้จักตารางหน่วยฐาน SI ทั้ง 7 พร้อมตัวอย่างใกล้ตัว[cite: 4, 9]</li>
-                <li>การเชื่อมโยงหน่วยเข้ากับชีวิตประจำวันสายศิลป์ (แฟชั่น อาหาร ดนตรี)[cite: 4]</li>
-                <li>เทคนิคเทียบบัญญัติไตรยางศ์แปลงหน่วยแบบคลิกสนุกเข้าใจง่าย[cite: 5]</li>
+                <li>รู้จักตารางหน่วยฐาน SI พร้อมตัวอย่างใกล้ตัว</li>
+                <li>การเชื่อมโยงหน่วยเข้ากับชีวิตประจำวันสายศิลป์ (แฟชั่น อาหาร ดนตรี)</li>
+                <li>เทคนิคเทียบบัญญัติไตรยางศ์แปลงหน่วยแบบคลิกสนุกเข้าใจง่าย</li>
             </ul>
         </div>
     </div>
 
-    <!-- สไลด์ที่ 2: ตารางหน่วยฐาน SI พร้อมลูกเล่นคลิกเปลี่ยนรูป -->
+    <!-- สไลด์ที่ 2: ตารางหน่วยฐาน SI พร้อมคลิกเปลี่ยนไอคอน -->
     <div class="slide">
-        <h1>ตารางหน่วยฐาน SI (คลิกแถวเพื่อดูรูปประกอบ)[cite: 4]</h1>
+        <h1>ตารางหน่วยฐาน SI (คลิกแถวเพื่อดูรูปประกอบ)</h1>
         <div class="grid-layout">
             <div>
                 <table>
@@ -213,43 +208,43 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr onclick="updateImage('length')">
+                        <tr onclick="updateDisplay('length', '📏', 'สายวัดความยาว (m)')">
                             <td>ความยาว</td>
                             <td>เมตร</td>
                             <td>m</td>
-                            <td>วัดความยาวผ้าตัดชุด[cite: 4]</td>
+                            <td>วัดความยาวผ้าตัดชุด</td>
                         </tr>
-                        <tr onclick="updateImage('mass')">
+                        <tr onclick="updateDisplay('mass', '⚖️', 'ตุ้มน้ำหนักมาตรฐาน (kg)')">
                             <td>มวล</td>
                             <td>กิโลกรัม</td>
                             <td>kg</td>
-                            <td>ชั่งแป้งและน้ำตาลทำขนม[cite: 4]</td>
+                            <td>ชั่งแป้งและน้ำตาลทำขนม</td>
                         </tr>
-                        <tr onclick="updateImage('time')">
+                        <tr onclick="updateDisplay('time', '⏱️', 'นาฬิกาจับเวลา (s)')">
                             <td>เวลา</td>
                             <td>วินาที</td>
                             <td>s</td>
-                            <td>จับเวลาคลิปวิดีโอสั้น[cite: 4]</td>
+                            <td>จับเวลาคลิปวิดีโอสั้น</td>
                         </tr>
-                        <tr onclick="updateImage('current')">
+                        <tr onclick="updateDisplay('current', '⚡', 'กระแสไฟฟ้า / สายชาร์จมือถือ (A)')">
                             <td>กระแสไฟฟ้า</td>
                             <td>แอมแปร์</td>
                             <td>A</td>
-                            <td>ดูสเปกสายชาร์จมือถือ[cite: 4]</td>
+                            <td>ดูสเปกสายชาร์จมือถือ</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="image-card">
-                <img id="dynamic-img" src="https://img.magnific.com/premium-vector/flat-vector-illustration-yellow-measuring-tape-sewing-isolated-cartoon-tailoring-tool-dressmaking_653461-5840.jpg?semt=ais_hybrid&w=740&q=80" alt="เครื่องมือวัด">
-                <p id="img-caption">สายวัดความยาว (m)[cite: 4]</p>
+                <div class="emoji-icon" id="display-icon">📏</div>
+                <p id="img-caption">สายวัดความยาว (m)</p>
             </div>
         </div>
     </div>
 
-    <!-- สไลด์ที่ 3: เทียบบัญญัติไตรยางศ์ (คลิกเปิดแผ่นป้าย) -->
+    <!-- สไลด์ที่ 3: เทียบบัญญัติไตรยางศ์ (ผ้า) -->
     <div class="slide">
-        <h1>เทียบบัญญัติไตรยางศ์แปลงหน่วย (คลิกเปิดป้าย)[cite: 5]</h1>
+        <h1>เทียบบัญญัติไตรยางศ์แปลงหน่วย (คลิกเปิดป้าย)</h1>
         <p style="color: #64748b; margin-bottom: 20px;">โจทย์: ซื้อผ้าตัดกระโปรงยาว 250 cm คิดเป็นกี่ m?</p>
         
         <div class="math-box">
@@ -266,16 +261,16 @@
 
     <!-- สไลด์ที่ 4: ฝึกคิดเพิ่ม (เบเกอรี) -->
     <div class="slide">
-        <h1>ฝึกคิดเพิ่ม: ชั่งแป้งทำเบเกอรี[cite: 5]</h1>
-        <p style="color: #64748b; margin-bottom: 20px;">โจทย์: สูตรเค้กใช้แป้ง 750 g คิดเป็นกี่ kg?[cite: 5]</p>
+        <h1>ฝึกคิดเพิ่ม: ชั่งแป้งทำเบเกอรี</h1>
+        <p style="color: #64748b; margin-bottom: 20px;">โจทย์: สูตรเค้กใช้แป้ง 750 g คิดเป็นกี่ kg?</p>
         
         <div class="math-box">
-            <div class="card-btn" id="b1" onclick="revealCard('b1', '1,000 g = 1 kg')">คลิกเปิดหลักฐาน (1,000 g = 1 kg)[cite: 5]</div>
+            <div class="card-btn" id="b1" onclick="revealCard('b1', '1,000 g = 1 kg')">คลิกเปิดหลักฐาน (1,000 g = 1 kg)</div>
             <div class="arrow-box">⟷</div>
             <div class="card-btn" id="b2" onclick="revealCard('b2', '÷ 1,000')">คลิกดูทิศทางลูกศรหาร</div>
         </div>
         <div class="math-box" style="margin-top: 15px;">
-            <div class="card-btn" id="b3" onclick="revealCard('b3', '750 g')">โจทย์: 750 g[cite: 5]</div>
+            <div class="card-btn" id="b3" onclick="revealCard('b3', '750 g')">โจทย์: 750 g</div>
             <div class="arrow-box">➡️</div>
             <div class="card-btn" id="b4" onclick="revealCard('b4', '0.75 kg (เฉลย)')">คลิกดูคำตอบ</div>
         </div>
@@ -311,24 +306,10 @@
         showSlide(currentSlide);
     }
 
-    // ฟังก์ชันคลิกเปลี่ยนรูปภาพตามแถวตาราง
-    function updateImage(type) {
-        const img = document.getElementById('dynamic-img');
-        const caption = document.getElementById('img-caption');
-        
-        if (type === 'length') {
-            img.src = 'https://img.magnific.com/premium-vector/flat-vector-illustration-yellow-measuring-tape-sewing-isolated-cartoon-tailoring-tool-dressmaking_653461-5840.jpg?semt=ais_hybrid&w=740&q=80';
-            caption.innerText = 'สายวัดความยาว (m)';
-        } else if (type === 'mass') {
-            img.src = 'https://media.istockphoto.com/id/1282457317/vector/weight-kg-trendy-flat-style-icon-shape-symbol-mass-mark-logo-sign-vector-illustration-image.jpg?s=612x612&w=0&k=20&c=vm-6upqlH0_rXhevScMQ_aZP_HUK_IjoIAOuzj8oRBA=';
-            caption.innerText = 'ตุ้มน้ำหนักมาตรฐาน (kg)';
-        } else if (type === 'time') {
-            img.src = 'https://img.magnific.com/premium-vector/1-minute-stopwatch-icon-flat-style-clock-face-timer-vector-illustration-isolated-background-countdown-sign-business-concept_157943-42311.jpg';
-            caption.innerText = 'นาฬิกาจับเวลา (s)';
-        } else if (type === 'current') {
-            img.src = 'https://img.magnific.com/premium-vector/cell-phone-is-connected-charger-charging-purposes-smartphone-wired-charging-simple-minimalist-flat-vector-illustration_538213-53429.jpg?semt=ais_hybrid&w=740&q=80';
-            caption.innerText = 'กระแสไฟฟ้า / สายชาร์จมือถือ (A)';
-        }
+    // ฟังก์ชันเปลี่ยนรูปไอคอนอิโมจิสดใสเมื่อคลิกแถวตาราง
+    function updateDisplay(type, emoji, text) {
+        document.getElementById('display-icon').innerText = emoji;
+        document.getElementById('img-caption').innerText = text;
     }
 
     // ฟังก์ชันคลิกเปิดแผ่นป้ายเฉลย
@@ -336,7 +317,6 @@
         const btn = document.getElementById(id);
         if (btn.classList.contains('revealed')) {
             btn.classList.remove('revealed');
-            // คืนค่าข้อความเดิมตามป้าย
             if(id === 'p1') btn.innerText = 'คลิกเปิดหลักฐาน (บรรทัดบน)';
             if(id === 'p2') btn.innerText = 'คลิกดูทิศทางลูกศร';
             if(id === 'p3') btn.innerText = 'โจทย์ตั้งต้น';
